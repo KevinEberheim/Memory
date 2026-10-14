@@ -1,0 +1,52 @@
+button{
+    cursor: pointer;
+    border: none;
+    background-color: #F0EA6E;
+    font-family: RedRose, sans-serif;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home_button {
+  font-size: 2.5rem;
+  width: 250px;
+  padding: 1.5rem;
+  color: #303131;
+  transform-origin: top center;
+  transition: all 0.3s ease-in-out;
+
+  &__controller{
+    width: 44px;
+    height: 32px;
+     &--big{
+      position: fixed;
+      bottom: 16px;
+      left: 0px;
+    }
+  }
+
+  &__arrow{
+    width: 33px;
+  }
+
+  &__controller--hover,
+  &__arrow--hover {
+    display: none;
+  }
+
+  &:hover {
+    transform: scale(1.07);
+
+    .home_button__controller,
+    .home_button__arrow {
+      display: none;
+    }
+
+    .home_button__controller--hover,
+    .home_button__arrow--hover {
+      display: inline;
+    }
+  }
+}

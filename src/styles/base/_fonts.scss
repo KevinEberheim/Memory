@@ -1,0 +1,23 @@
+@font-face {
+    font-family: RedRose;
+    src: url("/fonts/RedRose-VariableFont_wght.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: Almarai;
+    src: url("/fonts/Almarai-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: AlmaraiBold;
+    src: url("/fonts/Almarai-Bold.ttf") format('truetype');
+}
+
+body{
+    font-family: Almarai, sans-serif;
+}
+
+h1{
+    font-family: RedRose, sans-serif;
+    font-weight: 700;
+}
