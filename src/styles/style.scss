@@ -1,18 +1,10 @@
 @use './base/fonts';
 @use './components/button';
 @use './pages/home';
+@use './pages/settings';
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #303131;
 }
