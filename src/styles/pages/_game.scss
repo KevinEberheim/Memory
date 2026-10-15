@@ -2,38 +2,81 @@
     height: 100vh;
     max-width: 1440px;
     margin: 0 auto;
-  --color-bg: #ffffff;
-  --color-card: #cccccc;
+    --color-bg: #ffffff;
+    --color-card: #cccccc;
 
-  &[data-theme='codeVibes'] {
-    --color-bg: #303131;
-    --color-card-1: #4DD5BC;
-    --color-card-2: #286F62;
-  }
-  &[data-theme='gaming'] {
-    --color-bg: #294F60;
-    --color-card-1: #ED1B76;
-    --color-card-2: #0A2835;
-  }
+    &[data-theme='codeVibes'] {
+        --color-bg: #303131;
+        --color-card-1: #4DD5BC;
+        --color-card-2: #286F62;
+        --color-card-face: #E8F3F0;
+        --color-text: #ffffff;
+    }
 
-  background-color: var(--color-bg);
+    &[data-theme='gaming'] {
+        --color-bg: #294F60;
+        --color-card-1: #ED1B76;
+        --color-card-2: #0A2835;
+        --color-card-face: #F6F1F3;
+        --color-text: #ffffff;
+    }
 
-  &__main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-  }
+    background-color: var(--color-bg);
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2.375rem 0;
+        margin-bottom: 1rem;
+        color: var(--color-text);
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+    }
 }
 
 .game__card {
-  background: linear-gradient(45deg, var(--color-card-2), var(--color-card-1));
-  width: 120px;
-  aspect-ratio: 1/1;
+    width: 120px;
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    border: none;
+    perspective: 600px;
+
+    &__inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &__face {
+        position: absolute;
+        inset: 0;
+        backface-visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(45deg, var(--color-card-2), var(--color-card-1));
+
+        &--back {
+            transform: rotateY(180deg);
+            background: var(--color-card-face);
+        }
+    }
+
+    &__inner--flipped {
+        transform: rotateY(180deg);
+    }
 }
 
 .game__board {
-  display: grid;
-  grid-template-columns: repeat(var(--columns), 1fr);
-  gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 1rem;
 }

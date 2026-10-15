@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory-Game</title>
 </head>
+
 <body class="game" data-theme="codeVibes">
-    <header>
-        <p class="game__player"></p>
+    <header class="game__header">
+        <div>
+            <div>
+                <img src="" alt="">
+                <span>Blue <span data-score="blue">0</span></span>
+            </div>
+            <div>
+                <img src="" alt="">
+                <span>Orange <span data-score="orange">0</span></span>
+            </div>
+        </div>
+        <div>
+            <p class="game__player">Current player:</p>
+            <img class="game__current-icon" src="" alt="">
+        </div>
+        <button>
+            <img src="" alt="">
+            <span>Exit game</span>
+        </button>
     </header>
     <main class="game__main">
-        <div class="game__board">
-            
-        </div>
+        <div class="game__board"></div>
     </main>
     <script type="module" src="/src/main.ts"></script>
 </body>
+
 </html>
