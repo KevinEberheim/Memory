@@ -4,89 +4,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
+    <title>Memory-Settings</title>
 </head>
 
 <body class="settings">
     <header>
-        <h1>Settings</h1>
+        <h1 class="h1_settings">Settings</h1>
     </header>
     <main>
         <form class="settings__form">
-            <section class="settings__section--leftside">
+            <section class="settings__section__leftside">
                 <section class="settings__section">
-                    <div>
-                        <img src="" alt="">
-                        <h2>Game themes</h2>
+                    <div class="settings__section__headline">
+                        <img src="src/assets/images/gameSettingIcons/palette.svg" alt="Palette">
+                        <h2 class="h2_settings">Game themes</h2>
                     </div>
                     <div class="settings__inputs">
                         <label for="codeVibes">
-                            <input type="radio" id="codeVibes" name="Themes" value="Code vibes theme" checked>
+                            <input type="radio" id="codeVibes" name="Themes" value="codeVibes">
                             <span>Code vibes theme</span>
                         </label>
                         <label for="gaming">
-                            <input type="radio" id="gaming" name="Themes" value="Gaming theme">
+                            <input type="radio" id="gaming" name="Themes" value="gaming">
                             <span>Gaming theme</span>
                         </label>
                         <label for="food">
-                            <input type="radio" id="food" name="Themes" value="Foods Theme">
-                            <span>Foods Theme</span>
+                            <input type="radio" id="food" name="Themes" value="food">
+                            <span>Foods theme</span>
                         </label>
                     </div>
                 </section>
                 <section class="settings__section">
-                    <div>
-                        <img src="" alt="">
-                        <h2>Choose player</h2>
+                    <div class="settings__section__headline">
+                        <img src="src/assets/images/gameSettingIcons/chess_pawn.svg" alt="chess_pawn">
+                        <h2 class="h2_settings">Choose player</h2>
                     </div>
                     <div class="settings__inputs">
                         <label for="bluePlayer">
-                            <input type="radio" id="bluePlayer" name="Player" value="Blue" checked>
+                            <input type="radio" id="bluePlayer" name="Player" value="blue">
                             <span>Blue</span>
                         </label>
                         <label for="orangePlayer">
-                            <input type="radio" id="orangePlayer" name="Player" value="Orange">
+                            <input type="radio" id="orangePlayer" name="Player" value="orange">
                             <span>Orange</span>
                         </label>
                     </div>
                 </section>
                 <section class="settings__section">
-                    <div>
-                        <img src="" alt="">
-                        <h2>Board size</h2>
+                    <div class="settings__section__headline">
+                        <img src="src/assets/images/gameSettingIcons/style.svg" alt="style">
+                        <h2 class="h2_settings">Board size</h2>
                     </div>
                     <div class="settings__inputs">
                         <label for="minCards">
-                            <input type="radio" id="minCards" name="Cards" value="16 cards" checked>
+                            <input type="radio" id="minCards" name="Cards" value="16">
                             <span>16 cards</span>
                         </label>
                         <label for="mediumCards">
-                            <input type="radio" id="mediumCards" name="Cards" value="24 cards">
+                            <input type="radio" id="mediumCards" name="Cards" value="24">
                             <span>24 cards</span>
                         </label>
                         <label for="maxCards">
-                            <input type="radio" id="maxCards" name="Cards" value="36 cards">
-                            <span>32 cards</span>
+                            <input type="radio" id="maxCards" name="Cards" value="36">
+                            <span>36 cards</span>
                         </label>
                     </div>
                 </section>
 
             </section>
-            <section class="settings__section--rightside">
+            <section class="settings__section__rightside">
                 <img src="src/assets/images/gameSettingThemes/theme_codeVibes.png" alt="CodeVibes-Theme">
                 <div class="settings__chosen">
-                    <p>Game theme</p>
+                    <p data-group="Themes">Game theme</p>
                     <div class="settings__chosen__line"></div>
-                    <p>Player</p>
+                    <p data-group="Player">Player</p>
                     <div class="settings__chosen__line"></div>
-                    <p>Board size</p>
+                    <p data-group="Cards">Board size</p>
                     <div class="settings__chosen__line"></div>
-                    <button type="submit" class="settings__chosen__button"><img src="src/assets/images/gameSettingIcons/smart_display.svg" alt="smart_display"> Start</button>
+                    <button type="submit" class="settings__chosen__button"><img
+                            src="src/assets/images/gameSettingIcons/smart_display.svg" alt="smart_display">
+                        Start</button>
                 </div>
             </section>
         </form>
     </main>
+    <script type="module" src="/src/main.ts"></script>
 </body>
-<script type="module" src="/src/main.ts"></script>
 
 </html>

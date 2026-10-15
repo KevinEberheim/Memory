@@ -1,0 +1,39 @@
+.game {
+    height: 100vh;
+    max-width: 1440px;
+    margin: 0 auto;
+  --color-bg: #ffffff;
+  --color-card: #cccccc;
+
+  &[data-theme='codeVibes'] {
+    --color-bg: #303131;
+    --color-card-1: #4DD5BC;
+    --color-card-2: #286F62;
+  }
+  &[data-theme='gaming'] {
+    --color-bg: #294F60;
+    --color-card-1: #ED1B76;
+    --color-card-2: #0A2835;
+  }
+
+  background-color: var(--color-bg);
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+}
+
+.game__card {
+  background: linear-gradient(45deg, var(--color-card-2), var(--color-card-1));
+  width: 120px;
+  aspect-ratio: 1/1;
+}
+
+.game__board {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: 1rem;
+}
