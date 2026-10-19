@@ -23,6 +23,7 @@
         &__currentPlayer {
             font-size: 1.5rem;
             font-family: $font-heading;
+            align-items: center;
         }
 
         &--blue {
@@ -36,6 +37,26 @@
         &--flex {
             display: flex;
             gap: 0.25rem;
+        }
+    }
+}
+
+.game[data-theme='gaming'],
+.game[data-theme='food'] {
+    .game__player-name {
+        display: none;
+    }
+
+    .game__current-icon {
+        padding: 0.25rem 0.5rem;
+        border-radius: 8px;
+
+        &[data-player='blue'] {
+            background-color: $color-blue;
+        }
+
+        &[data-player='orange'] {
+            background-color: $color-orange;
         }
     }
 }

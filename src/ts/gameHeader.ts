@@ -1,3 +1,5 @@
+const SHARED_ICON_THEMES = ['gaming', 'food'];
+
 /**
  * Builds the icon path of a player for a theme.
  * @param player - The player value, e.g. "blue".
@@ -9,6 +11,20 @@ function getPlayerIcon(player: string, theme: string): string {
 }
 
 /**
+ * Builds the icon path of the current player for a theme.
+ * Themes with a shared icon use one file, the color comes from CSS.
+ * @param player - The player value, e.g. "blue".
+ * @param theme - The theme value, e.g. "gaming".
+ * @returns The icon path.
+ */
+function getCurrentIcon(player: string, theme: string): string {
+  const name = SHARED_ICON_THEMES.includes(theme)
+    ? 'currentPlayer_gaming_food'
+    : `${player}_${theme}`;
+  return `/src/assets/images/playerIcons/${name}.svg`;
+}
+
+/**
  * Shows the icon of the current player in the header.
  * @param player - The current player.
  * @param theme - The active theme.
@@ -16,8 +32,9 @@ function getPlayerIcon(player: string, theme: string): string {
 export function showPlayer(player: string, theme: string): void {
   const icon = document.querySelector<HTMLImageElement>('.game__current-icon');
   if (!icon) return;
-  icon.src = getPlayerIcon(player, theme);
+  icon.src = getCurrentIcon(player, theme);
   icon.alt = `${player} player`;
+  icon.dataset.player = player;
 }
 
 /**
