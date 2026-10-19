@@ -11,6 +11,8 @@
         --color-card-2: #286F62;
         --color-card-face: #E8F3F0;
         --color-text: #ffffff;
+        --color-button-bg: #86E9D633;
+        --color-players-bg: #86E9D633;
     }
 
     &[data-theme='gaming'] {
@@ -26,10 +28,41 @@
     &__header {
         display: flex;
         justify-content: space-between;
+        height: 62px;
         align-items: center;
-        padding: 2.375rem 0;
-        margin-bottom: 1rem;
+        margin-top: 41px;
+        margin-bottom: 54px;
         color: var(--color-text);
+
+        &__players {
+            display: flex;
+            gap: 1.25rem;
+            background-color: var(--color-players-bg);
+            height: 100%;
+            padding: 1rem 1.5rem;
+            align-items: center;
+            font-size: 1.5rem;
+            font-family: RedRose, sans-serif;
+            font-weight: 700;
+
+            &__currentPlayer{
+                font-size: 1.5rem;
+                font-family: RedRose, sans-serif;
+            }
+
+            &--blue {
+                color: #2BB1FF;
+            }
+
+            &--orange {
+                color: #F58E39;
+            }
+
+            &--flex {
+                display: flex;
+                gap: 0.25rem;
+            }
+        }
     }
 
     &__main {

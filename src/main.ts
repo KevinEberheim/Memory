@@ -4,6 +4,7 @@ import './ts/settings';
 import { initThemePreview } from './ts/settings';
 import { initSummary } from './ts/settings';
 import { initGame } from './ts/game';
+import { initExitDialog } from './ts/game';
 
 
 /**
@@ -16,6 +17,7 @@ function initApp(): void {
     }
     if (document.body.classList.contains('game')) {
         initGame();
+        initExitDialog();
     }
 }
 

@@ -9,24 +9,33 @@
 
 <body class="game" data-theme="codeVibes">
     <header class="game__header">
-        <div>
-            <div>
-                <img src="" alt="">
-                <span>Blue <span data-score="blue">0</span></span>
+        <div class="game__header__players">
+            <div class="game__header__players--flex">
+                <img class="game__score-icon" data-player="blue" src="" alt="">
+                <span class="game__header__players--blue">Blue <span data-score="blue">0</span></span>
             </div>
-            <div>
-                <img src="" alt="">
-                <span>Orange <span data-score="orange">0</span></span>
+            <div class="game__header__players--flex">
+                <img class="game__score-icon" data-player="orange" src="" alt="">
+                <span class="game__header__players--orange">Orange <span data-score="orange">0</span></span>
             </div>
         </div>
-        <div>
+        <div class="game__header__players__currentPlayer game__header__players--flex">
             <p class="game__player">Current player:</p>
             <img class="game__current-icon" src="" alt="">
         </div>
-        <button>
-            <img src="" alt="">
+        <button class="game__button" id="exit-button">
+            <img src="/assets/exit.svg" alt="exit">
             <span>Exit game</span>
         </button>
+        <dialog class="dialog" id="exit-dialog">
+            <div class="dialog__content">
+                <p class="dialog__text">Are you sure you want to quit the game?</p>
+                <div class="dialog__actions">
+                    <button class="dialog__button" id="dialog-back">Back to game</button>
+                    <button class="dialog__button dialog__button--exit" id="dialog-exit">Exit game</button>
+                </div>
+            </div>
+        </dialog>
     </header>
     <main class="game__main">
         <div class="game__board"></div>

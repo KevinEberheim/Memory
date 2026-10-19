@@ -61,6 +61,19 @@ function showPlayer(): void {
 }
 
 /**
+ * Sets the fixed player icons next to the score counters.
+ */
+function showScoreIcons(): void {
+  document
+    .querySelectorAll<HTMLImageElement>('.game__score-icon')
+    .forEach((icon) => {
+      const player = icon.dataset.player ?? '';
+      icon.src = getPlayerIcon(player);
+      icon.alt = `${player} player`;
+    });
+}
+
+/**
  * Returns a shuffled copy of the array (Fisher-Yates).
  * @param items - The array to shuffle.
  * @returns A new shuffled array.
@@ -244,5 +257,58 @@ export function initGame(): void {
   }
   applyTheme(savedSettings.theme);
   showPlayer();
+  showScoreIcons();
   createBoard(savedSettings.theme, savedSettings.cards);
+}
+
+/**
+ * Returns an element by its id or throws if it does not exist.
+ * @param id - The id of the element to find.
+ * @returns The found element.
+ */
+function getElement<T extends HTMLElement>(id: string): T {
+  const element = document.getElementById(id);
+  if (!element) throw new Error(`Element #${id} not found`);
+  return element as T;
+}
+
+/**
+ * Opens the exit confirmation dialog as a modal.
+ */
+function openExitDialog(): void {
+  getElement<HTMLDialogElement>('exit-dialog').showModal();
+}
+
+/**
+ * Closes the exit confirmation dialog and returns to the game.
+ */
+function closeExitDialog(): void {
+  getElement<HTMLDialogElement>('exit-dialog').close();
+}
+
+/**
+ * Closes the exit dialog when the click target is the dialog itself,
+ * which is the case for clicks on the backdrop.
+ * @param event - The click event fired on the dialog.
+ */
+function closeOnBackdropClick(event: MouseEvent): void {
+  const dialog = getElement<HTMLDialogElement>('exit-dialog');
+  if (event.target === dialog) closeExitDialog();
+}
+
+/**
+ * Ends the game and navigates back to the settings page.
+ */
+function exitGame(): void {
+  window.location.href = 'settings.html';
+}
+
+/**
+ * Registers the click listeners for the exit button and the dialog buttons.
+ */
+export function initExitDialog(): void {
+  getElement('exit-button').addEventListener('click', openExitDialog);
+  getElement('dialog-back').addEventListener('click', closeExitDialog);
+  getElement('dialog-exit').addEventListener('click', exitGame);
+  getElement('exit-dialog').addEventListener('click', closeOnBackdropClick);
 }
