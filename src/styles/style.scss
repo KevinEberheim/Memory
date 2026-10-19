@@ -1,12 +1,13 @@
+@use './base/reset';
 @use './base/fonts';
+@use './themes/codeVibes';
+@use './themes/gaming';
+@use './themes/food';
 @use './components/button';
 @use './components/dialog';
+@use './components/card';
+@use './layout/header';
+@use './layout/board';
 @use './pages/home';
 @use './pages/settings';
 @use './pages/game';
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}

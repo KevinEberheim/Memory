@@ -1,22 +1,24 @@
-.h1_home{
+@use '../abstract/variables' as *;
+
+.h1_home {
     font-size: 8.75rem;
 }
 
-.h2_home{
+.h2_home {
     font-size: 3rem;
 }
 
-.headline{
-    color: #fff;
+.headline {
+    color: $color-white;
     text-align: left;
     margin-bottom: 2.5rem;
 }
 
-.home{
+.home {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    background-color: #303131;
+    background-color: $color-dark;
 }

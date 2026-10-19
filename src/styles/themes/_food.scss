@@ -1,0 +1,18 @@
+.game[data-theme='food'] {
+    --color-bg: #FFFFFF;
+    --color-card-1: #F3832D;
+    --color-card-2: #F3832D;
+    --color-card-face: #F4ECE4;
+    --color-text: #A45212;
+    --color-button-bg: #FFF9F2;
+    --color-players-bg: #FFFFFF;
+    --color-accent: #F3832D;
+    --color-accent-light: #FFAB3E;
+    --color-button-hover-bg: #F3832D;
+    --color-button-shadow: #2F2E2E33;
+    --color-on-accent: #FFFFFF;
+    --color-button-text: #F3832D;
+    --color-button-hover-text: #FFFFFF;
+    --filter-button-icon: brightness(0) saturate(100%) invert(70%) sepia(58%) saturate(800%) hue-rotate(-37deg) brightness(85%) contrast(130%);
+    --filter-button-icon-hover: brightness(0) invert(1);
+}

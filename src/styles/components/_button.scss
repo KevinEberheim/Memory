@@ -1,33 +1,36 @@
-button{
-    cursor: pointer;
-    border: none;
-    background-color: #F0EA6E;
-    font-family: RedRose, sans-serif;
-    font-weight: 700;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+@use '../abstract/variables' as *;
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: $color-yellow;
+  font-family: $font-heading;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .home_button {
   font-size: 2.5rem;
   width: 250px;
   padding: 1.25rem;
-  color: #303131;
+  color: $color-dark;
   transform-origin: top center;
   transition: all 0.3s ease-in-out;
 
-  &__controller{
+  &__controller {
     width: 44px;
     height: 32px;
-     &--big{
+
+    &--big {
       position: fixed;
       bottom: 16px;
       left: 0px;
     }
   }
 
-  &__arrow{
+  &__arrow {
     width: 33px;
   }
 
@@ -51,20 +54,29 @@ button{
   }
 }
 
-.game__button{
-  color: #FFFFFF;
-  background-color: var(--color-button-bg);
-  padding: 1rem 1.5rem;
-  height: 100%;
-  gap: 10px;
-  outline: 2px solid #4DD5BC;
-  font-family: RedRose, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
+.game__button {
+    color: var(--color-button-text);
+    background-color: var(--color-button-bg);
+    padding: 1rem 1.5rem;
+    height: 100%;
+    gap: 10px;
+    outline: 2px solid var(--color-accent);
+    font-family: $font-heading;
+    font-size: 1.5rem;
+    font-weight: 700;
 
-  &:hover {
-    background-color: #86E9D642;
-    outline: 3px solid #4DD5BC; 
-    box-shadow: 4px 4px 6px 0px #4DD5BC33;
-  }
+    img {
+        filter: var(--filter-button-icon, none);
+    }
+
+    &:hover {
+        color: var(--color-button-hover-text);
+        background-color: var(--color-button-hover-bg);
+        outline: 3px solid var(--color-accent);
+        box-shadow: 4px 4px 6px 0px var(--color-button-shadow);
+
+        img {
+            filter: var(--filter-button-icon-hover, none);
+        }
+    }
 }

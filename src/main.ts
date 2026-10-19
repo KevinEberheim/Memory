@@ -1,10 +1,9 @@
 // @ts-expect-error TypeScript has no declaration for SCSS side-effect imports.
 import './styles/style.scss';
-import './ts/settings';
-import { initThemePreview } from './ts/settings';
-import { initSummary } from './ts/settings';
-import { initGame } from './ts/game';
-import { initExitDialog } from './ts/game';
+import { initThemePreview } from './ts/settingsPreview';
+import { initSummary } from './ts/settingsSummary';
+import { initGame } from './ts/gameLogic';
+import { initExitDialog } from './ts/exitDialog';
 
 
 /**

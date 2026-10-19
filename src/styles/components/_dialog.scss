@@ -1,64 +1,66 @@
+@use '../abstract/variables' as *;
+
 .dialog {
-  padding: 0px;
-  border: none;
-  border-radius: 12px;
-  max-width: 540px;
-  margin: auto;
-  opacity: 0;
-  transform: translateY(-100vh);
-  transition: all 0.3s ease-in-out allow-discrete;
-
-  &[open] {
-    opacity: 1;
-    transform: translateY(0);
-
-    @starting-style {
-      opacity: 0;
-      transform: translateY(-100vh);
-    }
-  }
-
-  &::backdrop {
-    background: rgba(0, 0, 0, 0);
+    padding: 0px;
+    border: none;
+    border-radius: 12px;
+    max-width: 540px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(-100vh);
     transition: all 0.3s ease-in-out allow-discrete;
-  }
 
-  &[open]::backdrop {
-    background: rgba(0, 0, 0, 0.3);
+    &[open] {
+        opacity: 1;
+        transform: translateY(0);
 
-    @starting-style {
-      background: rgba(0, 0, 0, 0);
+        @starting-style {
+            opacity: 0;
+            transform: translateY(-100vh);
+        }
     }
-  }
 
-  &__content {
-    padding: 40px;
-  }
-
-  &__text {
-    margin: 0 0 54px;
-    text-align: center;
-    font-size: 2rem;
-    font-family: RedRose, sans-serif;
-    font-weight: 700;
-  }
-
-  &__actions {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-  }
-
-  &__button {
-    padding: 16px 24px;
-    background: #66CFBC;
-    color: #FFFFFF;
-    font-size: 1.25rem;
-
-    &--exit {
-      background: #86E9D624;
-      border: 2px solid #4DD5BC;
-      color: #4DD5BC;
+    &::backdrop {
+        background: rgba(0, 0, 0, 0);
+        transition: all 0.3s ease-in-out allow-discrete;
     }
-  }
+
+    &[open]::backdrop {
+        background: rgba(0, 0, 0, 0.3);
+
+        @starting-style {
+            background: rgba(0, 0, 0, 0);
+        }
+    }
+
+    &__content {
+        padding: 40px;
+    }
+
+    &__text {
+        margin: 0 0 54px;
+        text-align: center;
+        font-size: 2rem;
+        font-family: $font-heading;
+        font-weight: 700;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+    }
+
+    &__button {
+        padding: 16px 24px;
+        background: var(--color-accent-light);
+        color: var(--color-on-accent);
+        font-size: 1.25rem;
+
+        &--exit {
+            background: var(--color-button-bg);
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+        }
+    }
 }
