@@ -1,9 +1,10 @@
-import { loadSettings } from './storage';
+import { loadSettings, saveScores } from './storage';
 import { showPlayer, showScoreIcons, showScore } from './gameHeader';
 import { createBoard, setFlipped } from './gameBoard';
 
 const MATCHED_CLASS = 'game__card--matched';
 const MISMATCH_DELAY = 1000;
+const GAME_OVER_DELAY = 1000;
 let openCards: HTMLButtonElement[] = [];
 let locked = false;
 const scores: Record<string, number> = { blue: 0, orange: 0 };
@@ -49,6 +50,7 @@ function keepMatch(): void {
   openCards.forEach((card) => card.classList.add(MATCHED_CLASS));
   addPoint();
   resetTurn();
+  if (isGameOver()) finishGame();
 }
 
 /**
@@ -104,4 +106,24 @@ export function initGame(): void {
   showPlayer(currentPlayer, currentTheme);
   showScoreIcons(currentTheme);
   createBoard(savedSettings.theme, savedSettings.cards, handleCardClick);
+}
+
+/**
+ * Checks whether every card on the board is matched.
+ * @returns True if the game is finished.
+ */
+function isGameOver(): boolean {
+  const total = document.querySelectorAll('.game__card').length;
+  const matched = document.querySelectorAll(`.${MATCHED_CLASS}`).length;
+  return total > 0 && total === matched;
+}
+
+/**
+ * Saves the final scores and redirects to the game over page.
+ */
+function finishGame(): void {
+  saveScores(scores);
+  setTimeout(() => {
+    window.location.href = 'gameOver.html';
+  }, GAME_OVER_DELAY);
 }

@@ -1,6 +1,6 @@
 @use '../abstract/variables' as *;
 
-.game[data-theme='codeVibes'] {
+[data-theme='codeVibes'] {
     --color-bg: #{$color-dark};
     --color-card-1: #{$color-teal};
     --color-card-2: #286F62;
@@ -16,4 +16,6 @@
     --color-button-text: #{$color-white};
     --color-button-hover-text: #{$color-white};
     --color-header-bg: #{$color-dark};
+    --color-headline: #4DD5BC;
+    --headline-shadow: -7px 0px 8px #4DD5BC80;
 }

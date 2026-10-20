@@ -4,6 +4,7 @@ import { initThemePreview } from './ts/settingsPreview';
 import { initSummary } from './ts/settingsSummary';
 import { initGame } from './ts/gameLogic';
 import { initExitDialog } from './ts/exitDialog';
+import { initGameOver } from './ts/gameOver';
 
 
 /**
@@ -17,6 +18,9 @@ function initApp(): void {
     if (document.body.classList.contains('game')) {
         initGame();
         initExitDialog();
+    }
+    if (document.body.classList.contains('gameOver')) {
+        initGameOver();
     }
 }
 

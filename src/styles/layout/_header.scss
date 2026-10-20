@@ -45,8 +45,8 @@
     }
 }
 
-.game[data-theme='gaming'],
-.game[data-theme='food'] {
+[data-theme='gaming'],
+[data-theme='food'] {
     .game__player-name {
         display: none;
     }

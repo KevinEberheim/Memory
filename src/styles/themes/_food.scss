@@ -1,4 +1,4 @@
-.game[data-theme='food'] {
+[data-theme='food'] {
     --color-bg: #FFFFFF;
     --color-card-1: #F3832D;
     --color-card-2: #F3832D;
@@ -23,4 +23,7 @@
     --font-current-player: KleeOne, sans-serif;
     --font-dialog: KleeOne, sans-serif;
     --color-dialog-text: #A45212;
+    --color-headline: #FFFFFF;
+    --headline-shadow: 0px 4px 4px #00000040;
+    --color-gameover-bg: #F3832D;
 }

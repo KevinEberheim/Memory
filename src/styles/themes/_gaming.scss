@@ -1,4 +1,4 @@
-.game[data-theme='gaming'] {
+[data-theme='gaming'] {
     --color-bg: #294F60;
     --color-card-1: #ED1B76;
     --color-card-2: #0A2835;
@@ -24,4 +24,6 @@
     --font-current-player: Orbitron, sans-serif;
     --font-dialog: Orbitron, sans-serif;
     --color-dialog-text: #294F60;
+    --color-headline: #ED1B76;
+    --headline-shadow: none;
 }
