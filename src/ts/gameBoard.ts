@@ -5,6 +5,8 @@ type CardHandler = (card: HTMLButtonElement) => void;
 const COLUMNS: Record<string, number> = { '16': 4, '24': 6, '36': 6 };
 const IMAGE_COUNT = 18;
 const FLIPPED_CLASS = 'game__card__inner--flipped';
+const FRONT_IMAGE = '/src/assets/images/cards/card_image.svg';
+const FRONT_IMAGE_THEMES = ['codeVibes', 'food'];
 
 /**
  * Builds the image URLs of one theme folder.
@@ -42,6 +44,21 @@ function createFace(modifier?: string): HTMLDivElement {
 }
 
 /**
+ * Creates the front face of a card. Themes with a shared front image show it.
+ * @param theme - The theme folder name, e.g. "food".
+ * @returns The front face element.
+ */
+function createFrontFace(theme: string): HTMLDivElement {
+  const face = createFace();
+  if (!FRONT_IMAGE_THEMES.includes(theme)) return face;
+  const img = document.createElement('img');
+  img.src = FRONT_IMAGE;
+  img.alt = '';
+  face.append(img);
+  return face;
+}
+
+/**
  * Creates the back face of a card, which shows the motif.
  * @param image - The image URL of the motif.
  * @returns The back face element.
@@ -69,17 +86,18 @@ export function setFlipped(card: HTMLButtonElement, faceUp: boolean): void {
 /**
  * Creates a flippable card showing the given motif on its back.
  * @param image - The image URL of the motif.
+ * @param theme - The theme folder name.
  * @param onClick - Called with the card when it is clicked.
  * @returns The card element.
  */
-function createCard(image: string, onClick: CardHandler): HTMLButtonElement {
+function createCard(image: string, theme: string, onClick: CardHandler): HTMLButtonElement {
   const card = document.createElement('button');
   const inner = document.createElement('div');
   card.type = 'button';
   card.dataset.image = image;
   card.classList.add('game__card');
   inner.classList.add('game__card__inner');
-  inner.append(createFace(), createBackFace(image));
+  inner.append(createFrontFace(theme), createBackFace(image));
   card.append(inner);
   card.addEventListener('click', () => onClick(card));
   return card;
@@ -96,5 +114,5 @@ export function createBoard(theme: string, cards: string, onClick: CardHandler):
   if (!board) return;
   board.style.setProperty('--columns', String(COLUMNS[cards]));
   const deck = buildDeck(theme, Number(cards));
-  board.replaceChildren(...deck.map((image) => createCard(image, onClick)));
+  board.replaceChildren(...deck.map((image) => createCard(image, theme, onClick)));
 }

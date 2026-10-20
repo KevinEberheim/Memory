@@ -10,6 +10,21 @@
     src: url("/fonts/Almarai-Regular.ttf") format('truetype');
 }
 
+@font-face {
+    font-family: KleeOne;
+    src: url("/fonts/KleeOne-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: DeliusUnicase;
+    src: url("/fonts/DeliusUnicase-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: Orbitron;
+    src: url("/fonts/Orbitron-Bold.ttf") format('truetype');
+}
+
 body {
     font-family: $font-body;
 }

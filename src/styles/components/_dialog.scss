@@ -41,8 +41,9 @@
         margin: 0 0 54px;
         text-align: center;
         font-size: 2rem;
-        font-family: $font-heading;
+        font-family: var(--font-dialog, #{$font-heading});
         font-weight: 700;
+        color: var(--color-dialog-text, #303131);
     }
 
     &__actions {
@@ -56,6 +57,8 @@
         background: var(--color-accent-light);
         color: var(--color-on-accent);
         font-size: 1.25rem;
+        border-radius: var(--header-radius, 0);
+        font-family: var(--font-button, #{$font-heading});
 
         &--exit {
             background: var(--color-button-bg);

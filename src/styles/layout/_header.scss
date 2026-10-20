@@ -3,11 +3,14 @@
 .game__header {
     display: flex;
     justify-content: space-between;
-    height: 62px;
+    min-height: 62px;
     align-items: center;
     margin-top: 41px;
     margin-bottom: 54px;
     color: var(--color-text);
+    background-color: var(--color-header-bg);
+    border-radius: var(--header-radius, 0);
+    padding: var(--header-padding, 0);
 
     &__players {
         display: flex;
@@ -17,12 +20,13 @@
         padding: 1rem 1.5rem;
         align-items: center;
         font-size: 1.5rem;
-        font-family: $font-heading;
+        font-family: var(--font-number, #{$font-heading});
         font-weight: 700;
+        border-radius: var(--header-radius);
 
         &__currentPlayer {
             font-size: 1.5rem;
-            font-family: $font-heading;
+            font-family: var(--font-current-player, #{$font-heading});
             align-items: center;
         }
 

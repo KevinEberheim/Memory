@@ -1,6 +1,6 @@
 .game__card {
-    width: 120px;
-    aspect-ratio: 1/1;
+    width: var(--card-width, 120px);
+    height: var(--card-height, 120px);
     background-color: transparent;
     border: none;
     perspective: 600px;
@@ -30,6 +30,7 @@
         justify-content: center;
         align-items: center;
         background: linear-gradient(45deg, var(--color-card-2), var(--color-card-1));
+        border-radius: var(--card-radius, 0);
 
         &--back {
             transform: rotateY(180deg);
