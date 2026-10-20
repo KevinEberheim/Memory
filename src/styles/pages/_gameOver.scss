@@ -16,13 +16,19 @@
 
     &__headline {
         font-size: 8rem;
+        font-family: var(--font-headline);
         color: var(--color-headline);
         text-shadow: var(--headline-shadow);
     }
 
     &__subline {
-        font-family: $font-heading;
+        font-family: var(--font-headline);
         font-size: 2rem;
+        color: $color-white;
+    }
+
+    .game__header__players {
+        font-family: var(--font-gameover-number, var(--font-headline));
     }
 
     &__score {
