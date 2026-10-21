@@ -19,4 +19,13 @@
     --color-headline: #4DD5BC;
     --headline-shadow: -7px 0px 8px #4DD5BC80;
     --font-headline: RedRose, sans-serif;
+    --color-winner-bg: #{$color-dark};
+    --color-winner-blue: #{$color-blue};
+    --color-winner-orange: #{$color-orange};
+    --color-winner-draw: #{$color-teal};
+    --winner-draw-shadow: -7px 0px 8px 0px #4DD5BC80;
+    --color-winner-button-text: #{$color-white};
+    --winner-button-bg: #86E9D633;
+    --winner-button-border: 1px solid #4DD5BC;
+    --winner-button-shadow: none;
 }

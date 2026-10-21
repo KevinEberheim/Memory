@@ -9,6 +9,12 @@
     flex-direction: column;
     gap: 62px;
 
+    @media (min-width: $max-width) {
+        height: auto;
+        min-height: 100vh;
+        justify-content: center;
+    }
+
     &__form {
         display: flex;
         justify-content: space-between;

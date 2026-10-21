@@ -5,6 +5,7 @@ import { initSummary } from './ts/settingsSummary';
 import { initGame } from './ts/gameLogic';
 import { initExitDialog } from './ts/exitDialog';
 import { initGameOver } from './ts/gameOver';
+import { initWinner } from './ts/winner';
 
 
 /**
@@ -21,6 +22,9 @@ function initApp(): void {
     }
     if (document.body.classList.contains('gameOver')) {
         initGameOver();
+    }
+    if (document.body.classList.contains('winner')) {
+        initWinner();
     }
 }
 

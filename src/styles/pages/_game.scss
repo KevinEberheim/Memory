@@ -4,7 +4,14 @@
     min-height: 100vh;
     max-width: $max-width;
     margin: 0 auto;
+    padding: 0px 112px;
     background-color: var(--color-bg);
+
+    @media (min-width: $max-width) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
     &__main {
         display: flex;

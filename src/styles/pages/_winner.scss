@@ -1,0 +1,76 @@
+@use '../abstract/variables' as *;
+
+.winner {
+    min-height: 100vh;
+    background-color: var(--color-winner-bg);
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+        min-height: 100vh;
+        max-width: $max-width;
+        margin: 0 auto;
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--winner-title-gap);
+    }
+
+    &__subline {
+        font-family: var(--font-headline);
+        font-size: 2.5rem;
+        color: var(--color-text);
+    }
+
+    &__headline {
+        font-family: var(--font-headline);
+        font-size: var(--winner-headline-size);
+        color: var(--color-winner-headline);
+        text-shadow: var(--winner-headline-shadow, none);
+        text-transform: var(--winner-headline-transform, none);
+    }
+
+    &__image {
+        padding: var(--winner-image-padding, 0);
+        background-color: var(--winner-image-bg, transparent);
+        box-shadow: var(--winner-image-shadow, none);
+    }
+
+    &__button {
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        font-family: var(--font-button, #{$font-heading});
+        font-size: 1.25rem;
+        color: var(--color-winner-button-text);
+        background-color: var(--winner-button-bg);
+        border: var(--winner-button-border);
+        box-shadow: var(--winner-button-shadow);
+        border-radius: var(--header-radius, 0);
+    }
+}
+
+.winner[data-result='blue'] {
+    --color-winner-headline: var(--color-winner-blue);
+    --winner-title-gap: 0.5rem;
+    --winner-headline-size: var(--winner-name-size, 4rem);
+}
+
+.winner[data-result='orange'] {
+    --color-winner-headline: var(--color-winner-orange);
+    --winner-title-gap: 0.5rem;
+    --winner-headline-size: var(--winner-name-size, 4rem);
+}
+
+.winner[data-result='draw'] {
+    --color-winner-headline: var(--color-winner-draw);
+    --winner-headline-shadow: var(--winner-draw-shadow);
+    --winner-headline-transform: uppercase;
+    --winner-title-gap: 1rem;
+    --winner-headline-size: 8rem;
+}
