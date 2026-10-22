@@ -16,6 +16,27 @@ const HEADLINES: Record<Result, string> = {
 };
 
 const IMAGE_PATH = '/src/assets/images/gameOverIcons/';
+const CONFETTI_PATH = '/src/assets/images/gameOverImages/';
+
+/**
+ * Adds the confetti picture for a codeVibes win.
+ * Screens wider than 1440px get the long version.
+ * @param result - The result of the game.
+ * @param theme - The active theme.
+ */
+function showConfetti(result: Result, theme: string): void {
+    if (theme !== 'codeVibes' || result === 'draw') return;
+    const picture = document.createElement('picture');
+    const source = document.createElement('source');
+    const img = document.createElement('img');
+    source.media = '(min-width: 1440px)';
+    source.srcset = CONFETTI_PATH + 'Confetti_long.svg';
+    img.src = CONFETTI_PATH + 'Confetti.svg';
+    img.alt = '';
+    picture.className = 'winner__confetti';
+    picture.append(source, img);
+    document.body.prepend(picture);
+}
 
 /**
  * Determines the result of the game from the scores.
@@ -82,6 +103,7 @@ function showResult(result: Result, theme: string): void {
   showTexts(result);
   showImage(result, theme);
   showButton(theme);
+  showConfetti(result, theme);
 }
 
 /**

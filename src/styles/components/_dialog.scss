@@ -59,11 +59,29 @@
         font-size: 1.25rem;
         border-radius: var(--header-radius, 0);
         font-family: var(--font-button, #{$font-heading});
+        border: 3px solid transparent;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: var(--color-dialog-hover-bg);
+            border-color: var(--color-dialog-hover-border);
+            box-shadow: var(--dialog-hover-shadow, none);
+            color: var(--dialog-hover-text, var(--color-on-accent));
+        }
 
         &--exit {
             background: var(--color-button-bg);
             border: 2px solid var(--color-accent);
             color: var(--color-accent);
+
+            &:hover {
+                background: var(--color-button-bg);
+                border-color: var(--color-accent);
+                color: var(--color-accent);
+                box-shadow:
+                    0 0 0 1px var(--color-accent),
+                    4px 4px 6px 0px var(--color-button-shadow);
+            }
         }
     }
 }

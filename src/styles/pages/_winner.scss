@@ -3,6 +3,22 @@
 .winner {
     min-height: 100vh;
     background-color: var(--color-winner-bg);
+    position: relative;
+
+    &__confetti {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        pointer-events: none;
+        padding-inline: 100px;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
 
     &__main {
         display: flex;
@@ -52,6 +68,13 @@
         border: var(--winner-button-border);
         box-shadow: var(--winner-button-shadow);
         border-radius: var(--header-radius, 0);
+
+        &:hover {
+            color: var(--winner-button-hover-text, var(--color-button-hover-text));
+            background-color: var(--winner-button-hover-bg, var(--color-button-hover-bg));
+            outline: 3px solid var(--color-accent);
+            box-shadow: 4px 4px 6px 0px var(--color-button-shadow);
+        }
     }
 }
 

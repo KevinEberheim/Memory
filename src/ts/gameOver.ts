@@ -1,7 +1,7 @@
 import { loadScores, loadSettings } from './storage';
 import { showScoreIcons, showScore } from './gameHeader';
 
-const WINNER_DELAY = 1000;
+const WINNER_DELAY = 2000;
 
 /**
  * Redirects to the winner page after a short delay.
