@@ -15,8 +15,8 @@ const HEADLINES: Record<Result, string> = {
     draw: 'Draw',
 };
 
-const IMAGE_PATH = '/src/assets/images/gameOverIcons/';
-const CONFETTI_PATH = '/src/assets/images/gameOverImages/';
+const IMAGE_PATH = 'assets/images/gameOverIcons/';
+const CONFETTI_PATH = 'assets/images/gameOverImages/';
 
 /**
  * Adds the confetti picture for a codeVibes win.

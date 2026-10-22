@@ -7,7 +7,7 @@ const SHARED_ICON_THEMES = ['gaming', 'food'];
  * @returns The icon path.
  */
 function getPlayerIcon(player: string, theme: string): string {
-  return `/src/assets/images/playerIcons/${player}_${theme}.svg`;
+  return `assets/images/playerIcons/${player}_${theme}.svg`;
 }
 
 /**
@@ -21,7 +21,7 @@ function getCurrentIcon(player: string, theme: string): string {
   const name = SHARED_ICON_THEMES.includes(theme)
     ? 'currentPlayer_gaming_food'
     : `${player}_${theme}`;
-  return `/src/assets/images/playerIcons/${name}.svg`;
+  return `assets/images/playerIcons/${name}.svg`;
 }
 
 /**

@@ -1,4 +1,4 @@
-const IMAGE_PATH = 'src/assets/images/gameSettingThemes/';
+const IMAGE_PATH = 'assets/images/gameSettingThemes/';
 
 const THEME_IMAGES: Record<string, string> = {
   codeVibes: 'theme_codeVibes.png',

@@ -5,7 +5,7 @@ type CardHandler = (card: HTMLButtonElement) => void;
 const COLUMNS: Record<string, number> = { '16': 4, '24': 6, '36': 6 };
 const IMAGE_COUNT = 18;
 const FLIPPED_CLASS = 'game__card__inner--flipped';
-const FRONT_IMAGE = '/src/assets/images/cards/card_image.svg';
+const FRONT_IMAGE = 'assets/images/cards/card_image.svg';
 const FRONT_IMAGE_THEMES = ['codeVibes', 'food'];
 
 /**
@@ -16,7 +16,7 @@ const FRONT_IMAGE_THEMES = ['codeVibes', 'food'];
 function getThemeImages(theme: string): string[] {
   return Array.from(
     { length: IMAGE_COUNT },
-    (_, i) => `/src/assets/images/cards/${theme}/card_${i + 1}.svg`
+    (_, i) => `assets/images/cards/${theme}/card_${i + 1}.svg`
   );
 }
 
