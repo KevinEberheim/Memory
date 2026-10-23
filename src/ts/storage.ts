@@ -40,3 +40,11 @@ export function loadSettings(): Settings | null {
 export function saveSettings(settings: Settings): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
 }
+
+/**
+ * Removes the saved settings and scores from localStorage.
+ */
+export function clearStorage(): void {
+  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(SCORES_KEY);
+}

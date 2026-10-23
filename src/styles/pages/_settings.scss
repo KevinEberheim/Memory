@@ -75,14 +75,27 @@
     }
 
     &__chosen {
+        align-self: stretch;
         display: flex;
         align-items: center;
         justify-content: flex-end;
         padding: 0.875rem 1.25rem;
         flex: 1;
-        gap: 1rem;
+        gap: 0.5rem;
         font-size: 1.25rem;
         background-color: #F6F6F6;
+
+        p {
+            flex: 1;
+            min-width: 0;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        &__line,
+        &__button {
+            flex-shrink: 0;
+        }
 
         &__line {
             width: 56px;

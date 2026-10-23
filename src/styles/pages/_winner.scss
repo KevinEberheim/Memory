@@ -1,5 +1,34 @@
 @use '../abstract/variables' as *;
 
+@view-transition {
+    navigation: auto;
+}
+
+@keyframes winner-fly-in {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+}
+
+html:has(.winner)::view-transition-new(root) {
+    animation: winner-fly-in 0.5s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:has(.winner)::view-transition-new(root) {
+        animation: none;
+    }
+}
+
 .winner {
     min-height: 100vh;
     background-color: var(--color-winner-bg);

@@ -1,3 +1,4 @@
+let committedId: string | null = null;
 const IMAGE_PATH = 'assets/images/gameSettingThemes/';
 
 const THEME_IMAGES: Record<string, string> = {
@@ -19,11 +20,64 @@ function updateThemePreview(themeId: string): void {
 }
 
 /**
- * Registers a change listener on every theme radio input.
+ * Returns the id of the currently checked theme radio.
+ * @returns The checked theme id, or null if none is checked.
+ */
+function getCheckedThemeId(): string | null {
+  const radio = document.querySelector<HTMLInputElement>('input[name="Themes"]:checked');
+  return radio ? radio.id : null;
+}
+
+/**
+ * Checks the hovered radio temporarily and shows its preview.
+ * @param radio - The hovered theme radio input.
+ */
+function previewHover(radio: HTMLInputElement): void {
+  radio.checked = true;
+  updateThemePreview(radio.id);
+}
+
+/**
+ * Restores the radio and the preview image of the committed theme.
+ */
+function restoreCommitted(): void {
+  if (!committedId) return;
+  const radio = document.getElementById(committedId) as HTMLInputElement | null;
+  if (radio) radio.checked = true;
+  updateThemePreview(committedId);
+}
+
+/**
+ * Stores a clicked radio as the committed theme and notifies the form.
+ * A click on an already checked radio fires no change event, so it is dispatched manually.
+ * @param radio - The clicked theme radio input.
+ */
+function commitClick(radio: HTMLInputElement): void {
+  committedId = radio.id;
+  radio.dispatchEvent(new Event('change', { bubbles: true }));
+}
+
+/**
+ * Registers hover, click and change listeners on one theme radio input.
+ * @param radio - The theme radio input.
+ */
+function registerRadio(radio: HTMLInputElement): void {
+  const label = radio.closest('label');
+  label?.addEventListener('mouseenter', () => previewHover(radio));
+  label?.addEventListener('mouseleave', restoreCommitted);
+  radio.addEventListener('click', () => commitClick(radio));
+  radio.addEventListener('change', () => {
+    committedId = radio.id;
+    updateThemePreview(radio.id);
+  });
+}
+
+/**
+ * Registers the listeners on every theme radio input.
  */
 export function initThemePreview(): void {
-  const radios = document.querySelectorAll<HTMLInputElement>('input[name="Themes"]');
-  radios.forEach((radio) => {
-    radio.addEventListener('change', () => updateThemePreview(radio.id));
-  });
+  committedId = getCheckedThemeId();
+  document
+    .querySelectorAll<HTMLInputElement>('input[name="Themes"]')
+    .forEach(registerRadio);
 }

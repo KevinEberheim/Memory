@@ -7,12 +7,6 @@
     padding: 0px 112px;
     background-color: var(--color-bg);
 
-    @media (min-width: $max-width) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
     &__main {
         display: flex;
         justify-content: center;

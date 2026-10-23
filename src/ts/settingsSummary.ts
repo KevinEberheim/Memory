@@ -1,10 +1,36 @@
-import { saveSettings, type Settings } from './storage';
+import { saveSettings, loadSettings, type Settings } from './storage';
 
 const SUMMARY_FORMAT: Record<string, (value: string) => string> = {
   Themes: (value) => value,
   Player: (value) => `${value} Player`,
   Cards: (value) => `Board-${value}`,
 };
+
+/**
+ * Checks the radio of a group that matches the saved value and fires
+ * a change event, so the theme preview and the summary update.
+ * @param group - The name attribute of the radio group.
+ * @param value - The saved value of that group.
+ */
+function restoreRadio(group: string, value: string): void {
+  const radio = document.querySelector<HTMLInputElement>(
+    `input[name="${group}"][value="${value}"]`
+  );
+  if (!radio) return;
+  radio.checked = true;
+  radio.dispatchEvent(new Event('change', { bubbles: true }));
+}
+
+/**
+ * Applies the saved settings to the form, if any exist.
+ */
+function restoreSettings(): void {
+  const saved = loadSettings();
+  if (!saved) return;
+  restoreRadio('Themes', saved.theme);
+  restoreRadio('Player', saved.player);
+  restoreRadio('Cards', saved.cards);
+}
 
 /**
  * Returns the value of the checked radio of a group.
@@ -66,8 +92,9 @@ function updateSummary(): void {
 export function initSummary(): void {
   const form = document.querySelector('.settings__form');
   form?.addEventListener('change', updateSummary);
-  updateSummary();
   form?.addEventListener('submit', (e) => handleSubmit(e as SubmitEvent));
+  restoreSettings();
+  updateSummary();
 }
 
 /**
