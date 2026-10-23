@@ -47,4 +47,7 @@ function initApp(): void {
     });
 }
 
+/**
+ * Starts the page specific initialisation once the DOM has been parsed.
+ */
 document.addEventListener('DOMContentLoaded', initApp);
