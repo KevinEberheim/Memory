@@ -1,7 +1,6 @@
 @use '../abstract/variables' as *;
 
 .game {
-    min-height: 100vh;
     max-width: $max-width;
     margin: 0 auto;
     padding: 0px 112px;
